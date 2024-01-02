@@ -1,0 +1,22 @@
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
+
+WORKDIR /app/backend
+EXPOSE 80
+EXPOSE 443
+
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+
+WORKDIR /
+COPY . .
+RUN dotnet restore
+WORKDIR /src/Web.Api
+RUN dotnet build --no-restore -c Release -o /app/backend
+
+FROM build AS publish
+
+RUN dotnet publish --no-restore -c Release -o /app/backend
+
+FROM base AS final
+
+WORKDIR /app/backend
+COPY --from=publish /app/backend .

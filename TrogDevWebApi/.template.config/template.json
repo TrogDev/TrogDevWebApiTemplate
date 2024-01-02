@@ -1,0 +1,19 @@
+{
+    "author": "TrogDev",
+    "classifications": [
+        ".Net Core",
+        "dotnet",
+        "template",
+        "webapi",
+        "clean architecture",
+        "ASP.NET"
+    ],
+    "name": "TrogDev WebApi Template",
+    "identity": "Core.AvaloniaUI.Template",
+    "shortName": "trogdevwebapi",
+    "tags": {
+        "language": "C#"
+    },
+    "sourceName": "TrogDevWebApi",
+    "preferNameDirectory": true
+}
